@@ -10,12 +10,7 @@
         placeholder="Digite o nome do filme..."
         class="flex-1 px-4 py-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
-      <button
-        @click="searchMovies"
-        class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-      >
-        Buscar
-      </button>
+      <Button @click="searchMovies" class="h-auto"> Buscar </Button>
     </div>
 
     <div v-if="movies.length === 0 && query">
@@ -47,7 +42,8 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import api from "../services/api";
+import api from "@/services/api";
+import { Button } from "@/components/ui/button";
 
 const query = ref("");
 const movies = ref<any[]>([]);
