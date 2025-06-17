@@ -7,7 +7,7 @@ import Footer from "@/components/Footer.vue";
   <div class="h-screen flex flex-col">
     <Header />
 
-    <main class="flex-1 overflow-y-auto">
+    <main class="flex-1 overflow-y-auto bg-slate-900">
       <router-view />
     </main>
 
