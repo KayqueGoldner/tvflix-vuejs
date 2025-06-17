@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import DefaultLayout from "../layouts/DefaultLayout.vue";
 import Home from "../pages/Home.vue";
+import Search from "@/pages/Search.vue";
 
 const routes = [
   {
@@ -11,6 +12,11 @@ const routes = [
         path: "",
         name: "Home",
         component: Home,
+      },
+      {
+        path: "pesquisar",
+        name: "Search",
+        component: Search,
       },
     ],
   },
