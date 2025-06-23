@@ -40,13 +40,8 @@ watchEffect(() => {
 </script>
 
 <template>
-<<<<<<< Updated upstream
-  <div class="p-4 max-w-6xl mx-auto">
-    <h1 class="text-3xl font-bold mb-6">Resultados para "{{ query }}"</h1>
-=======
   <div class="p-4 max-w-6xl mx-auto overflow-y-auto">
-    <h1 class="text-4xl sm:text-5xl font-bold mb-6 text-white">{{ query }}</h1>
->>>>>>> Stashed changes
+    <h1 class="text-3xl font-bold mb-6">Resultados para "{{ query }}"</h1>
 
     <div v-if="isLoading">Carregando...</div>
     <div v-else-if="error">{{ error }}</div>
@@ -59,9 +54,12 @@ watchEffect(() => {
       <MovieCard
         v-for="movie in movies"
         :key="movie.id"
+        :id="movie.id"
         :title="movie.title"
-        :overview="movie.overview"
         :poster="movie.poster_path"
+        :popularity="movie.popularity"
+        :year="movie.release_date.slice(0, 4)"
+        type="Filme"
       />
     </div>
   </div>
