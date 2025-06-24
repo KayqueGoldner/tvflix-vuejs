@@ -41,7 +41,9 @@ watchEffect(() => {
 
 <template>
   <div class="p-4 max-w-6xl mx-auto overflow-y-auto">
-    <h1 class="text-3xl font-bold mb-6">Resultados para "{{ query }}"</h1>
+    <h1 class="text-5xl font-bold mb-6 text-white">
+      Resultados para "{{ query }}"
+    </h1>
 
     <div v-if="isLoading">Carregando...</div>
     <div v-else-if="error">{{ error }}</div>
@@ -49,7 +51,7 @@ watchEffect(() => {
 
     <div
       v-else
-      class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
+      class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 xs:gap-5 w-full pt-5"
     >
       <MovieCard
         v-for="movie in movies"
