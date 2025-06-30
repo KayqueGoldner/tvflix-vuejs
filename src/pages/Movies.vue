@@ -66,8 +66,8 @@ watchEffect(() => {
     >
       <MovieCard
         v-for="movie in movies.results"
-        type="Filme"
         :key="movie.id"
+        :href="`/filme/${movie.id}`"
         :id="movie.id"
         :title="movie.title"
         :poster="movie.poster_path"

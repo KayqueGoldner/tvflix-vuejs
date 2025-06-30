@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="`/filme/${id}`" class="group">
+  <router-link :to="href" class="group">
     <div
       class="relative w-full aspect-[2/3] rounded-md overflow-hidden bg-neutral-950"
     >
@@ -26,6 +26,7 @@
         </div>
         <div class="flex items-center gap-x-1">
           <div
+            v-if="type"
             class="inline-flex items-center border py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent px-2 bg-zinc-600/40 hover:bg-zinc-600/20 text-white rounded-[6px]"
           >
             <span class="font-medium text-sm capitalize">{{ type }}</span>
@@ -45,11 +46,12 @@
 import { FilmIcon, StarIcon } from "lucide-vue-next";
 
 defineProps<{
+  href: string;
   id: number;
   title: string;
   poster: string | null;
   popularity: number;
-  type: string;
+  type?: "Filme" | "TV";
   year: string;
 }>();
 </script>
