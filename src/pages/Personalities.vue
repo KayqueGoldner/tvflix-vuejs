@@ -5,9 +5,10 @@ import { ref, watchEffect } from "vue";
 const scrollContainer = ref<HTMLElement | null>(null);
 
 import api from "../services/api";
+import type { Ipeople } from "../types";
 import PersonCard from "../components/PersonCard.vue";
 import Pagination from "../components/Pagination.vue";
-import type { Ipeople } from "../types";
+import LoadingState from "../components/LoadingState.vue";
 
 const route = useRoute();
 
@@ -55,10 +56,17 @@ watchEffect(() => {
 
 <template>
   <div ref="scrollContainer" class="p-4 max-w-6xl mx-auto overflow-y-auto">
-    <h1 class="text-5xl font-bold mb-6 text-white">Personalidades</h1>
+    <h1
+      v-if="personalities.results.length"
+      class="text-5xl font-bold mb-6 text-white"
+    >
+      Personalidades
+    </h1>
+
+    <LoadingState :isLoading="isLoading" />
 
     <div
-      v-if="personalities.results"
+      v-if="personalities.results.length"
       class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 xs:gap-5 w-full pt-5"
     >
       <PersonCard
@@ -75,6 +83,7 @@ watchEffect(() => {
     <Pagination
       v-if="personalities.total_pages"
       :maxPages="personalities.total_pages"
+      :isLoading="isLoading"
     />
   </div>
 </template>
