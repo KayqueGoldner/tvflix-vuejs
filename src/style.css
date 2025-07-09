@@ -122,6 +122,12 @@
   }
 }
 
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
 
 .sidebar-item { position: relative; }
 
@@ -147,3 +153,54 @@
 .sidebar-item a { transition: 0.5s; }
 
 .sidebar-item.active a { padding-inline-start: 20px; }
+
+
+::selection {
+  background-color: #d80725;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track { background-color: transparent; }
+
+::-webkit-scrollbar-thumb { 
+  background-color: hsla(250, 6%, 20%, 1); 
+  border-radius: 10px;
+}
+
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  width: 100%;
+  display: flex;
+  column-gap: 15px;
+}
+
+.embla__container > div {
+  flex-shrink: 0;
+}
+
+.embla__progress {
+  position: relative;
+  height: 0.3rem;
+  width: 100%;
+  border-radius: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.embla__progress__bar {
+  border-radius: 200px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  z-index: 2;
+}
