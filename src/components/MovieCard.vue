@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="href" class="group">
+  <router-link :to="href" :class="cn('group shrink-0', cardClass)">
     <div
       class="relative w-full aspect-[2/3] rounded-md overflow-hidden bg-neutral-950"
     >
@@ -7,6 +7,8 @@
         v-if="poster"
         :src="`https://image.tmdb.org/t/p/w500${poster}`"
         :alt="title"
+        width="500"
+        height="500"
         class="size-full object-cover"
       />
       <FilmIcon
@@ -45,6 +47,8 @@
 <script setup lang="ts">
 import { FilmIcon, StarIcon } from "lucide-vue-next";
 
+import { cn } from "@/lib/utils";
+
 defineProps<{
   href: string;
   id: number;
@@ -53,5 +57,6 @@ defineProps<{
   popularity: number;
   type?: "Filme" | "TV";
   year: string;
+  cardClass?: string;
 }>();
 </script>
